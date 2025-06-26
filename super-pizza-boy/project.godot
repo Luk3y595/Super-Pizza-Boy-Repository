@@ -11,4 +11,5 @@ config_version=5
 [application]
 
 config/name="Super Pizza Boy"
+run/main_scene="uid://due2tom03f5kl"
 config/features=PackedStringArray("4.4", "Forward Plus")
