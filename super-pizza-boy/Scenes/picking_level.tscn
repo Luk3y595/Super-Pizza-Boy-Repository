@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=4 uid="uid://csqwopai73c4x"]
+[gd_scene load_steps=5 format=4 uid="uid://csqwopai73c4x"]
 
 [ext_resource type="TileSet" uid="uid://bwh7v24seqllc" path="res://Textures/Main Menu Texture Tile.tres" id="1_olvqj"]
+[ext_resource type="Script" uid="uid://caugid3huo4cm" path="res://Scripts/Order_#1_button.gd" id="2_0oeyv"]
+[ext_resource type="Script" uid="uid://wqs7nq50lcsq" path="res://Scripts/Order_#2_button.gd" id="3_fryni"]
+[ext_resource type="Script" uid="uid://b8vg2kggqcsrg" path="res://Scripts/Order_#3_button.gd" id="4_6ggqb"]
 
 [node name="Picking Level" type="Node2D"]
 
@@ -14,13 +17,7 @@ offset_top = 80.0
 offset_right = 433.0
 offset_bottom = 464.0
 text = "Order #1"
-
-[node name="Button3" type="Button" parent="."]
-offset_left = 768.0
-offset_top = 80.0
-offset_right = 962.0
-offset_bottom = 467.0
-text = "Order #3"
+script = ExtResource("2_0oeyv")
 
 [node name="Button2" type="Button" parent="."]
 offset_left = 505.0
@@ -28,9 +25,16 @@ offset_top = 80.0
 offset_right = 696.0
 offset_bottom = 465.0
 text = "Order #2"
+script = ExtResource("3_fryni")
 
-[node name="Button4" type="Button" parent="."]
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
+[node name="Button3" type="Button" parent="."]
+offset_left = 768.0
+offset_top = 80.0
+offset_right = 962.0
+offset_bottom = 467.0
+text = "Order #3"
+script = ExtResource("4_6ggqb")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[connection signal="pressed" from="Button2" to="Button2" method="_on_pressed"]
+[connection signal="pressed" from="Button3" to="Button3" method="_on_pressed"]
