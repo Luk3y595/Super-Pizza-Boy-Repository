@@ -1,3 +1,47 @@
-[gd_scene format=3 uid="uid://c5vxqgy3qlxhj"]
+[gd_scene load_steps=7 format=3 uid="uid://c5vxqgy3qlxhj"]
+
+[ext_resource type="Script" uid="uid://cx6x7hkkwxkyy" path="res://Scenes/BowlOfWater.gd" id="1_fgtnx"]
+[ext_resource type="Texture2D" uid="uid://dmwnjaspkgk7e" path="res://Textures/Bowls-2.png.png" id="2_fgtnx"]
+[ext_resource type="Script" uid="uid://dmwevj8seyym7" path="res://Scenes/Make_Bowl_Change.gd" id="2_or2dr"]
+[ext_resource type="Script" uid="uid://cb31s5t1ixofq" path="res://Scenes/BowlOfFlour.gd" id="3_or2dr"]
+[ext_resource type="Texture2D" uid="uid://bgbh106higdhi" path="res://Textures/Bowls-5.png.png" id="4_i3gja"]
+[ext_resource type="Texture2D" uid="uid://dmcmxw7fjiyt" path="res://Textures/Bowls-4.png.png" id="4_u6f7f"]
 
 [node name="Order #1 (Classic Pepperoni)" type="Node2D"]
+
+[node name="Bowl Of Water" type="Button" parent="."]
+offset_left = 522.0
+offset_top = 218.0
+offset_right = 628.0
+offset_bottom = 263.0
+script = ExtResource("1_fgtnx")
+
+[node name="Area2D" type="Area2D" parent="Bowl Of Water"]
+script = ExtResource("2_or2dr")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bowl Of Water/Area2D"]
+polygon = PackedVector2Array(-19, -5, -19, 10, -15, 10, -15, 21, -10, 21, -10, 28, -6, 28, -6, 36, -2, 36, -2, 40, 2, 40, 2, 44, 6, 44, 6, 47, 10, 47, 10, 51, 19, 51, 19, 55, 27, 55, 27, 59, 77, 59, 77, 55, 85, 55, 85, 51, 94, 51, 94, 47, 98, 47, 98, 44, 102, 44, 102, 40, 106, 40, 106, 36, 110, 36, 110, 28, 115, 28, 114, 21, 118, 21, 118, 10, 123, 10, 123, -5, 118, -5, 118, -9, 114, -9, 114, -13, 106, -13, 106, -17, 93, -17, 93, -21, 77, -20, 77, -24, 27, -24, 27, -21, 10, -20, 10, -17, -2, -16, -2, -13, -11, -13, -11, -9, -15, -9, -15, -6)
+
+[node name="Full_Bowl_Of_Water" type="Sprite2D" parent="Bowl Of Water"]
+position = Vector2(56, 21)
+scale = Vector2(4.15625, 3.75)
+texture = ExtResource("2_fgtnx")
+
+[node name="Empty_Bowl_Of_Water" type="Sprite2D" parent="Bowl Of Water"]
+position = Vector2(52, 17.5)
+scale = Vector2(4.1875, 3.70312)
+texture = ExtResource("4_i3gja")
+
+[node name="Bowl Of Flour" type="Button" parent="."]
+offset_left = 139.0
+offset_top = 168.0
+offset_right = 243.0
+offset_bottom = 248.0
+script = ExtResource("3_or2dr")
+
+[node name="Bowls-4_png" type="Sprite2D" parent="Bowl Of Flour"]
+position = Vector2(57, 52)
+scale = Vector2(4.25, 4.05469)
+texture = ExtResource("4_u6f7f")
+
+[connection signal="input_event" from="Bowl Of Water/Area2D" to="Bowl Of Water/Area2D" method="_on_input_event"]
