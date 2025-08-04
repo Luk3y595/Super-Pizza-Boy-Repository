@@ -1,5 +1,7 @@
 extends Area2D
 
+signal bowl_clicked
+
 @onready var _water = $AnimatedSprite2D
 
 func play_start_animation():
@@ -8,3 +10,4 @@ func play_start_animation():
 func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		_water.play()
+		emit_signal("bowl_clicked")

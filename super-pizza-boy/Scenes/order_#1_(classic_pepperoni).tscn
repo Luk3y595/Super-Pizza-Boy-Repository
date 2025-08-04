@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://c5vxqgy3qlxhj"]
+[gd_scene load_steps=12 format=3 uid="uid://c5vxqgy3qlxhj"]
 
+[ext_resource type="Script" uid="uid://jflio2s835hm" path="res://Scenes/Order_1_dough_maker.gd" id="1_fgtnx"]
 [ext_resource type="Script" uid="uid://dmwevj8seyym7" path="res://Scenes/Make_Bowl_Change.gd" id="2_or2dr"]
 [ext_resource type="Script" uid="uid://bbru7wgrh2xcr" path="res://Scenes/Bowl_Change_Flour.gd" id="3_fgtnx"]
 [ext_resource type="Texture2D" uid="uid://cky5enwsm08kw" path="res://Textures/Bowls.png" id="3_u6f7f"]
-[ext_resource type="Texture2D" uid="uid://dx0qnovt5h8si" path="res://Textures/Dough'bad.png" id="6_i3gja"]
+[ext_resource type="Texture2D" uid="uid://dx0qnovt5h8si" path="res://Textures/Dough'bad.png" id="5_aqdkf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3pjtj"]
 atlas = ExtResource("3_u6f7f")
@@ -50,40 +51,42 @@ animations = [{
 }]
 
 [node name="Order #1 (Classic Pepperoni)" type="Node2D"]
+script = ExtResource("1_fgtnx")
 
-[node name="Bowl Of Water" type="Node2D" parent="."]
-position = Vector2(454, 210)
+[node name="WaterBowl" type="Node2D" parent="."]
+position = Vector2(478, 258)
 metadata/_edit_group_ = true
 
-[node name="Area2D" type="Area2D" parent="Bowl Of Water"]
+[node name="Area2D" type="Area2D" parent="WaterBowl"]
 script = ExtResource("2_or2dr")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bowl Of Water/Area2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WaterBowl/Area2D"]
 polygon = PackedVector2Array(-19, -5, -19, 10, -15, 10, -15, 21, -10, 21, -10, 28, -6, 28, -6, 36, -2, 36, -2, 40, 2, 40, 2, 44, 6, 44, 6, 47, 10, 47, 10, 51, 19, 51, 19, 55, 27, 55, 27, 59, 77, 59, 77, 55, 85, 55, 85, 51, 94, 51, 94, 47, 98, 47, 98, 44, 102, 44, 102, 40, 106, 40, 106, 36, 110, 36, 110, 28, 115, 28, 114, 21, 118, 21, 118, 10, 123, 10, 123, -5, 118, -5, 118, -9, 114, -9, 114, -13, 106, -13, 106, -17, 93, -17, 93, -21, 77, -20, 77, -24, 27, -24, 27, -21, 10, -20, 10, -17, -2, -16, -2, -13, -11, -13, -11, -9, -15, -9, -15, -6)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Bowl Of Water/Area2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="WaterBowl/Area2D"]
 position = Vector2(56.5, 20.5)
 scale = Vector2(4.14063, 3.67187)
 sprite_frames = SubResource("SpriteFrames_4rfur")
 
-[node name="Bowl Of Flour" type="Node2D" parent="."]
-position = Vector2(219, 181)
+[node name="FlourBowl" type="Node2D" parent="."]
+position = Vector2(213, 211)
+metadata/_edit_group_ = true
 
-[node name="Area2D" type="Area2D" parent="Bowl Of Flour"]
+[node name="Area2D" type="Area2D" parent="FlourBowl"]
 script = ExtResource("3_fgtnx")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bowl Of Flour/Area2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FlourBowl/Area2D"]
 polygon = PackedVector2Array(7, -34, 7, -25, 2, -25, 2, -21, -2, -21, -2, -17, -6, -18, -6, -2, -2, -2, -2, 10, 2, 10, 3, 19, 7, 19, 7, 26, 11, 26, 11, 30, 16, 30, 16, 34, 20, 34, 20, 38, 24, 38, 24, 41, 33, 41, 33, 46, 42, 46, 42, 50, 94, 50, 94, 46, 103, 46, 103, 42, 111, 42, 111, 38, 115, 38, 115, 34, 120, 34, 120, 30, 125, 30, 124, 26, 128, 26, 128, 18, 133, 18, 133, 10, 137, 10, 137, -2, 142, -2, 142, -18, 137, -18, 137, -22, 133, -22, 133, -26, 128, -26, 128, -30, 124, -30, 124, -38, 116, -38, 116, -42, 112, -42, 111, -46, 103, -46, 103, -53, 98, -53, 98, -57, 86, -57, 85, -62, 42, -61, 41, -57, 37, -57, 37, -53, 33, -53, 33, -49, 28, -49, 28, -45, 20, -45, 20, -42, 15, -41, 15, -37, 11, -37, 11, -34)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Bowl Of Flour/Area2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="FlourBowl/Area2D"]
 position = Vector2(72, 10)
 scale = Vector2(4.33691, 3.94824)
 sprite_frames = SubResource("SpriteFrames_u6f7f")
 
-[node name="Dough\'bad" type="Sprite2D" parent="."]
-position = Vector2(226, 372.5)
-scale = Vector2(6, 2.46875)
-texture = ExtResource("6_i3gja")
+[node name="Dough" type="Sprite2D" parent="."]
+position = Vector2(358, 486.5)
+scale = Vector2(10.125, 6.65625)
+texture = ExtResource("5_aqdkf")
 
-[connection signal="input_event" from="Bowl Of Water/Area2D" to="Bowl Of Water/Area2D" method="_on_input_event"]
-[connection signal="input_event" from="Bowl Of Flour/Area2D" to="Bowl Of Flour/Area2D" method="_on_input_event_flour"]
+[connection signal="input_event" from="WaterBowl/Area2D" to="WaterBowl/Area2D" method="_on_input_event"]
+[connection signal="input_event" from="FlourBowl/Area2D" to="FlourBowl/Area2D" method="_on_input_event_flour"]
